@@ -1,0 +1,249 @@
+/* ===== Wrapper ===== */
+.access-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #0b0c10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== Access Container ===== */
+.access-container {
+  color: #ff6f00;
+  width: 100%;
+  max-width: 520px;
+  position: relative;
+  z-index: 1;
+}
+
+.access-container.blurred .access-card {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+  transition: filter 0.3s ease;
+}
+
+/* ===== Access Card ===== */
+.access-card {
+  background: #131417;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 0 20px rgba(255, 111, 0, 0.3);
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+/* ===== Heading ===== */
+.access-card h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #ff6f00;
+  text-shadow: 0 0 8px #ff6f00;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+/* ===== Input ===== */
+.private-input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ff6f00;
+  background-color: #0f1013;
+  color: #ff6f00;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+.private-input::placeholder {
+  color: #aaa;
+}
+
+/* ===== Button ===== */
+.login-btn {
+  background-color: #1f2329;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 0 auto 25px auto;
+}
+
+.login-btn:hover {
+  background-color: #2a2f36;
+}
+
+/* ===== Generate Link ===== */
+.generate-text {
+  color: #ff6f00;
+  font-size: 1rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 25px;
+}
+
+.key-icon {
+  color: gold;
+}
+
+.clickable {
+  text-decoration: underline;
+}
+
+/* ===== Keys Output ===== */
+.keys-display {
+  word-break: break-word;
+}
+
+.key-box {
+  background-color: #1f1f1f;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  color: #ff6f00;
+  font-size: 0.9rem;
+  overflow-wrap: break-word;
+}
+
+/* ===== Error Message ===== */
+.error-message {
+  color: #ff4444;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.error-icon {
+  color: #ff4444;
+}
+
+/* ===== Notification Popup ===== */
+.notification-popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #222;
+  border: 1px solid #555;
+  border-left: 4px solid #ffc107;
+  color: #fff;
+  padding: 1.2rem;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 999;
+  width: 90%;
+  max-width: 410px;
+  min-width: 280px;
+  min-height: 180px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fogRise 0.8s ease-out forwards;
+}
+
+.notification-popup strong {
+  color: #ffc107;
+}
+
+.icon-info {
+  color: #ffc107;
+  margin-right: 0.4rem;
+  vertical-align: middle;
+  font-size: 1.2rem;
+}
+
+.button-wrapper {
+  margin-top: 1.2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 38%;
+  margin-left: -80%;
+}
+
+.close-btn {
+  background-color: #444;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: inline-block;
+}
+
+.close-btn:hover {
+  background-color: #666;
+}
+
+/* ✅ Consolidated responsive styles */
+@media screen and (max-width: 480px) {
+  .access-card {
+    padding: 25px;
+  }
+
+  .access-card h2 {
+    font-size: 1.6rem;
+  }
+
+  .private-input {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
+
+  .login-btn {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+
+  .notification-popup {
+    width: 95%;
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .close-btn {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .icon-info {
+    font-size: 1rem;
+  }
+}
+
+/* ===== Notification Animation ===== */
+@keyframes fogRise {
+  0% {
+    transform: translate(-50%, -60%);
+    opacity: 0;
+    filter: blur(8px);
+  }
+  100% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+    filter: blur(0);
+  }
+}

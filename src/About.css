@@ -1,0 +1,83 @@
+.about-page {
+  background-color: #0a0a0a;
+  color: #f1f1f1;
+  padding: 4rem 2rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.about-hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.about-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: #ff5500;
+}
+
+.about-hero p {
+  font-size: 1.2rem;
+  color: #a0aec0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.about-features {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+.feature-card {
+  background-color: #141a22;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 280px;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  color: #ff5500;
+  margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.feature-card p {
+  color: #a0aec0;
+  font-size: 0.95rem;
+}
+
+.about-cta {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #111827;
+  padding: 3rem 2rem;
+  border-radius: 1rem;
+}
+
+.about-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #ff5500;
+}
+
+.about-cta p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}

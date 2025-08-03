@@ -1,0 +1,101 @@
+/* .notification-toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #121212;
+  color: #fff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  z-index: 9999;
+  animation: slideIn 0.4s ease-out, fadeOut 0.5s ease-in 2.5s forwards;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toast-close {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 8px;
+  transition: color 0.2s ease;
+}
+
+.toast-close:hover {
+  color: #fff;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  to {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+} */
+.notification-toast {
+  position: fixed;
+  top: 20px; /* Top spacing */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #222;
+  color: #fff;
+  padding: 1.2rem 1.6rem;
+  border-radius: 10px;
+  border-left: 4px solid #ffc107;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 280px;
+  max-width: 420px;
+  width: 90%;
+  font-size: 1rem;
+  font-family: 'Segoe UI', sans-serif;
+  animation: fogRiseTop 0.5s ease-out forwards;
+}
+
+/* Close Button */
+.toast-close {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  transition: color 0.2s ease;
+}
+
+.toast-close:hover {
+  color: #ffc107;
+}
+
+/* Animation */
+@keyframes fogRiseTop {
+  0% {
+    transform: translateX(-50%) translateY(-20px);
+    opacity: 0;
+    filter: blur(4px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}

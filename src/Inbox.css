@@ -1,0 +1,523 @@
+/* === Global Styles === */
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  height: 100%;
+}
+
+::selection {
+  background-color: #ff5500;
+  color: #ffffff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #333;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #ff5500;
+}
+
+/* === Compose Floating Button === */
+.compose-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  background-color: #1e1e2f;
+  color: #ff5500;
+  border-radius: 50%;
+  font-size: 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s ease;
+}
+.compose-btn:hover {
+  background-color: #2c2c3c;
+}
+
+/* === Compose Box === */
+.compose-box {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  width: 500px;
+  background-color: #111;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.6);
+  z-index: 101;
+  color: #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.compose-box h3 {
+  margin: 0;
+  font-size: 18px;
+  color: #ffcc00;
+}
+
+.compose-box input[type="text"],
+.compose-box textarea {
+  width: 100%;
+  padding: 8px;
+  background: #222;
+  border: 1px solid #333;
+  color: #fff;
+  border-radius: 6px;
+}
+
+.compose-box textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.compose-box input[type="file"] {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  color: #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.compose-box input[type="file"]::file-selector-button {
+  background-color: #ff5500;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.compose-box input[type="file"]::file-selector-button:hover {
+  background-color: #ff3300;
+}
+
+.send-btn {
+  background-color: #ff5500;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 15px;
+  font-weight: bold;
+}
+.send-btn:hover {
+  background-color: #ff3300;
+}
+
+/* === Inbox Layout === */
+.inbox-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.inbox-header {
+  background-color: #121212;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #222;
+}
+
+.inbox-header .logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 22px;
+  color: #ff5500;
+}
+
+.logo-img {
+  height: 30px;
+  margin-right: 10px;
+}
+
+.inbox-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 60px;
+  background-color: #111;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  border-right: 1px solid #222;
+}
+
+.icon-box {
+  font-size: 20px;
+  color: #888;
+  margin: 20px 0;
+  cursor: pointer;
+}
+.icon-box:hover {
+  color: #ff5500;
+}
+
+/* === Inbox Message Container === */
+.inbox-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Make sure messages align to the top */
+  padding: 16px;
+  overflow-y: auto;
+  height: 100%;
+  position: relative;
+}
+
+.inbox-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 12px;
+  align-items: stretch;
+}
+
+/* === Empty Inbox Placeholder === */
+.inbox-empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.8;
+}
+
+/* Watermark Image */
+.inbox-image {
+  width: 300px;
+  max-width: 80%;
+  opacity: 0.5;
+  margin-bottom: 10px;
+}
+
+/* Watermark Message */
+.inbox-message {
+  font-size: 16px;
+  color: #777;
+  opacity: 0.9;
+}
+/* === Message Row === */
+.message-row {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  width: 100%;
+  transition: background 0.2s ease;
+  cursor: pointer;
+}
+.message-row:hover {
+  background-color: #242424;
+}
+
+.checkbox {
+  margin-right: 12px;
+  accent-color: #ff5500;
+}
+
+.star {
+  color: #666;
+  margin-right: 12px;
+  cursor: pointer;
+}
+.star:hover {
+  color: #ff5500;
+}
+
+.sender {
+  color: #eee;
+  font-weight: 500;
+  margin-right: 16px;
+  width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.subject-preview {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  color: #ccc;
+  overflow: hidden;
+}
+.subject {
+  font-weight: 500;
+  color: #fff;
+  margin-right: 6px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.preview {
+  color: #888;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.attachment {
+  color: #ff5500;
+  text-decoration: none;
+  font-size: 18px;
+  margin-left: 10px;
+}
+
+/* === Status Message === */
+.status-msg {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #ccc;
+}
+
+/* === Code Box === */
+.code-box {
+  font-size: 14px;
+  background: #1e1e1e;
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: #aaa;
+}
+
+.blur {
+  filter: blur(6px);
+  user-select: none;
+  transition: filter 0.3s ease;
+  cursor: pointer;
+}
+
+.blur:hover {
+  filter: none;
+}
+
+/* === Message Detail Overlay === */
+.message-detail-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.message-detail-box {
+  background: #1a1a1a;
+  color: #eee;
+  padding: 25px 30px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 30px rgba(0,0,0,0.6);
+  animation: fadeInUp 0.3s ease;
+  position: relative;
+}
+
+.message-detail-box h3 {
+  margin-top: 0;
+  color: #ff5500;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.message-detail-box p {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.attachment-section {
+  margin-top: 20px;
+}
+
+.download-link {
+  background: #ff5500;
+  padding: 10px 15px;
+  border-radius: 6px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #333;
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.close-btn:hover {
+  background-color: #ff3300;
+}
+
+/*===================*/
+.message-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 10, 10, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99;
+  backdrop-filter: blur(4px);
+}
+
+.message-modal {
+  background: linear-gradient(to bottom right, #1a1a1a, #222);
+  padding: 2rem;
+  border-radius: 14px;
+  max-width: 600px;
+  width: 90%;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+  color: #e8e8e8;
+  animation: fadeIn 0.3s ease-in-out;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.message-modal h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #ff5500;
+}
+
+.modal-from {
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 0.3rem;
+  word-break: break-word;
+}
+
+.message-modal h4 {
+  margin-top: 1.2rem;
+  font-size: 1.1rem;
+  color: #fafafa;
+}
+
+.modal-message {
+  white-space: pre-wrap;
+  margin: 1rem 0;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  background: #1f1f1f;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid #333;
+  color: #ddd;
+}
+
+.modal-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+  color: #ff5500;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.modal-download:hover {
+  color: #ff3300;
+}
+
+.modal-reply-btn {
+  margin-top: 1.5rem;
+  padding: 10px 18px;
+  background-color: #4b4b4b;
+  color: #f2f2f2;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.modal-reply-btn:hover {
+  background-color: #666;
+}
+
+/*===================*/
+.modal-delete-btn {
+  margin-top: 1.5rem;
+  margin-right: 9px;
+  margin-left: 9px;
+  padding: 10px 18px;
+  background-color: #c52828;
+  color: #f2f2f2;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.modal-delete-btn:hover {
+  background-color: #d22020;
+}
+
+
+/* === Animation === */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,112 @@
+.security-page {
+  padding: 80px 20px;
+  background: radial-gradient(circle at top left, #0a0a0a, #000000);
+  color: #e6e6e6;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  animation: fadeInBody 0.7s ease;
+}
+
+.security-container {
+  max-width: 950px;
+  width: 100%;
+  background: rgba(18, 18, 18, 0.9);
+  padding: 60px 50px;
+  border-radius: 22px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(8px);
+  animation: fadeInUp 0.6s ease;
+}
+
+.security-title {
+  font-size: 36px;
+  color: #ff5500;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 35px;
+  border-bottom: 1px solid #333;
+  padding-bottom: 15px;
+}
+
+.intro-text {
+  font-size: 18px;
+  color: #cccccc;
+  margin-bottom: 45px;
+  line-height: 1.7;
+}
+
+.security-section {
+  margin-bottom: 40px;
+  padding: 24px;
+  background: rgba(28, 28, 28, 0.95);
+  border-radius: 16px;
+  border-left: 5px solid #ff5500;
+  box-shadow: 0 4px 16px rgba(255, 255, 255, 0.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.5s ease;
+}
+
+.security-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(255, 255, 255, 0.04);
+}
+
+.security-section h2 {
+  font-size: 23px;
+  color: #ff5500;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.security-section p {
+  font-size: 16px;
+  color: #bbbbbb;
+  line-height: 1.8;
+  margin: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInBody {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .security-container {
+    padding: 35px 20px;
+  }
+
+  .security-title {
+    font-size: 28px;
+  }
+
+  .security-section h2 {
+    font-size: 19px;
+  }
+
+  .intro-text {
+    font-size: 15.5px;
+  }
+}
